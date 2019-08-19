@@ -1,1 +1,1 @@
-export const { PRODUCTS_FETCH } = 'PRODUCTS/FETCH'
+export const PRODUCTS_FETCH = 'PRODUCTS/FETCH'

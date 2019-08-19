@@ -7,12 +7,15 @@ import products from './products/reducers'
 const rootReducer = combineReducers({
   products: products,
   // users: combineReducers({
-  //   auth:,
+  //   auth: ,
   //   profile:
   // }),
   // comments
 })
 
-const store = createStore(rootReducer)
+const store = createStore(
+  rootReducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+)
 
 export default store

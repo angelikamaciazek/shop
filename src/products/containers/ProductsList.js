@@ -1,38 +1,36 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
 import Product from '../components/Product'
+import { fetchProducts } from '../actions'
 
+const mapStateToProps = (state, ownProps) => ({
+  myProducts: state.products.products,
+  isUser: ownProps.isUser
+})
 
-const products = [
-  {name:"One", description:"Super product 1", price:"123"},
-  {name:"Two", description:"Super product 2", price:"456"},
-  {name:"Three", description:"Super product 3", price:"789"}
-]
+const mapDispatchToProps = dispatch => ({
+  fetchProducts: () => dispatch(fetchProducts())
+})
 
 class ProductsList extends Component {
 
-  state = {
-    products: []    
-  }
+    componentDidMount() {
+      this.props.fetchProducts()
+    }
 
-  componentDidMount() {
-    this.setState({
-      products: products
-    })
-  }
-
-  render() {
-    return (
-      <React.Fragment>
-        {
-          this.state.products.map((product, index) => (
-            <Product key={`prod-${index}`} data={product}/>
-          ))
-        }
-      </React.Fragment>
-
-    )
-  }
+    render () {
+      return (
+        <React.Fragment>
+          {this.props.myProducts.map((product, index) => (
+            <Product key={`prod-${index}`} data={product} />
+          ))}
+        </React.Fragment>
+      )
+    }
 }
 
-export default ProductsList
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ProductsList)
