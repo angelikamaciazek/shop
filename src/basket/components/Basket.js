@@ -1,0 +1,14 @@
+import React from 'react'
+
+const Basket = props => (
+  <div>
+    {props.data.map((product, index) => (
+      <div key={`basket-${index}`}>
+        <span>{product.name}</span> {product.quantity} quan, {product.quantity * product.price}
+      </div>
+    )
+    )}
+  </div>
+)
+
+export default Basket 
