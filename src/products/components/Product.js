@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Product = props => {
+const Product = props => (
   <div>
-    <p>{product.name}</p>
-    <p>{product.description}</p>
-    <p>{props.price}</p>
+    <p>{props.data.name}</p>
+    <p>{props.data.description}</p>
+    <p>{props.data.price}</p>
   </div>
-}
+)
 
 export default Product
