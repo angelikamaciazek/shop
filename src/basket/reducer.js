@@ -1,4 +1,4 @@
-import { BASKET_ADD_PRODUCT } from './constans'
+import { BASKET_ADD_PRODUCT } from './constants'
 
 const INITIAL_STATE = {
   products: [] // {name, quantity, price}
